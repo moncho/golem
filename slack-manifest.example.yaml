@@ -1,0 +1,54 @@
+# Slack app manifest template for Golem. Copy it to slack-manifest.yaml (ignored
+# by git), put your own name in display_information.name, bot_user.display_name
+# and the descriptions, then create the app at https://api.slack.com/apps with
+# "From a manifest" and paste your copy. After that:
+#   1. Basic Information > App-Level Tokens: generate a token with the
+#      connections:write scope; that is SLACK_APP_TOKEN (xapp-...).
+#   2. Install to Workspace; the Bot User OAuth Token is SLACK_BOT_TOKEN (xoxb-...).
+#   3. Invite the bot to each channel (/invite @Golem) and put your member ID
+#      in GOLEM_SLACK_USERS.
+_metadata:
+  major_version: 1
+  minor_version: 1
+display_information:
+  name: Golem
+  description: Personal agent that takes requests from mentions and DMs and replies in the thread.
+  background_color: "#2b2b2b"
+features:
+  agent_view:
+    agent_description: Personal agent that hands goals to Workers that run commands in your workspace, and reports back in the thread.
+    suggested_prompts:
+      - title: Inspect the project
+        message: Inspect this project and run its tests. Report failures with evidence.
+      - title: What are you working on?
+        message: What tasks are active or waiting on me?
+  app_home:
+    messages_tab_enabled: true
+    messages_tab_read_only_enabled: false
+  bot_user:
+    display_name: Golem
+    always_online: false
+oauth_config:
+  scopes:
+    bot:
+      - app_mentions:read
+      - assistant:write
+      - chat:write
+      - channels:history
+      - groups:history
+      - im:history
+      - im:read
+settings:
+  event_subscriptions:
+    bot_events:
+      - app_home_opened
+      - app_mention
+      - agent_session_stopped
+      - message.channels
+      - message.groups
+      - message.im
+  interactivity:
+    is_enabled: false
+  org_deploy_enabled: false
+  socket_mode_enabled: true
+  token_rotation_enabled: false

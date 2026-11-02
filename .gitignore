@@ -1,0 +1,24 @@
+/golem
+.env
+
+# Local data & auth
+store/
+data/
+logs/
+
+# Native controller and execution state
+.golem/
+.golem-node/
+node_modules/
+dist/
+host/node_modules/
+host/dist/
+internal/host/host.mjs
+bin/
+.golem-pi/
+
+# macOS
+.DS_Store
+
+# Personal Slack app manifest; slack-manifest.example.yaml is the template
+slack-manifest.yaml

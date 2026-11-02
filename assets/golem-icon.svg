@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <radialGradient id="bg" cx="0.5" cy="0.38" r="0.85">
+      <stop offset="0" stop-color="#5a3526"/>
+      <stop offset="0.55" stop-color="#2e1a13"/>
+      <stop offset="1" stop-color="#150c09"/>
+    </radialGradient>
+    <linearGradient id="clay" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#eebd94"/>
+      <stop offset="0.5" stop-color="#cf8558"/>
+      <stop offset="1" stop-color="#8f4c30"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff3e2" stop-opacity="0.7"/>
+      <stop offset="0.35" stop-color="#fff3e2" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="eye" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fffbe8"/>
+      <stop offset="1" stop-color="#ffc857"/>
+    </linearGradient>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="34"/>
+    </filter>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="26"/>
+    </filter>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#bg)"/>
+  <!-- ground shadow -->
+  <ellipse cx="512" cy="868" rx="270" ry="38" fill="#000000" opacity="0.5" filter="url(#soft)"/>
+  <!-- head: one smooth lump of fired clay -->
+  <path d="M512 196 C742 196 836 318 836 520 C836 726 730 832 512 832 C294 832 188 726 188 520 C188 318 282 196 512 196 Z" fill="url(#clay)"/>
+  <path d="M512 201 C738 201 831 320 831 520 C831 722 727 827 512 827 C297 827 193 722 193 520 C193 320 286 201 512 201 Z" fill="none" stroke="url(#rim)" stroke-width="10"/>
+  <!-- eye glow, then eyes -->
+  <g filter="url(#glow)" fill="#ff9a1f" opacity="0.95">
+    <rect x="336" y="446" width="92" height="170" rx="46"/>
+    <rect x="596" y="446" width="92" height="170" rx="46"/>
+  </g>
+  <rect x="348" y="458" width="68" height="146" rx="34" fill="url(#eye)"/>
+  <rect x="608" y="458" width="68" height="146" rx="34" fill="url(#eye)"/>
+  <!-- the animating word: a small ember sigil pressed into the brow -->
+  <circle cx="512" cy="332" r="40" fill="#ff6a2b" opacity="0.7" filter="url(#glow)"/>
+  <circle cx="512" cy="332" r="26" fill="none" stroke="#fff0d6" stroke-width="9"/>
+  <circle cx="512" cy="332" r="9" fill="#fffaf0"/>
+</svg>
